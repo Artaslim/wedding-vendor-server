@@ -17,11 +17,12 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
   serverApi: ServerApiVersion.v1,
 });
-client.connect((err) => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+async function run() {
+  try {
+  } finally {
+  }
+}
+run().catch((err) => console.error(err));
 
 app.get("/", (req, res) => {
   res.send("wedding vendor service running on");
