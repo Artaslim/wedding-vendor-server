@@ -1,6 +1,7 @@
 const express = require("express");
 
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
+
 const cors = require("cors");
 const app = express();
 require("dotenv").config();
@@ -17,10 +18,13 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
   serverApi: ServerApiVersion.v1,
 });
+
 async function run() {
   try {
     const serviceCollection = client.db("weddingVendor").collection("services");
     const orderCollection = client.db("weddingVendor").collection("orders");
+
+    //get
 
     app.get("/services", async (req, res) => {
       const query = {};
@@ -38,7 +42,6 @@ async function run() {
     //get
 
     app.get("/orders", async (req, res) => {
-      console.log(req.query.email);
       let query = {};
 
       if (req.query.email) {
